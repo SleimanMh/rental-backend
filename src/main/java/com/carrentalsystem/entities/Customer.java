@@ -3,6 +3,7 @@ package com.carrentalsystem.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,18 @@ public class Customer {
 
     @Column(name="customer_contact_number")
     private String customerContactNumber;
+
+    @Column(name="DOB")
+    private Date date_of_birth;
+
+    @Column(name="email")
+    private String email;
+
+    @Column(name="address")
+    private String address;
+
+    @Column(name="age")
+    private int age =10;
 
     @ManyToMany(mappedBy = "customers")
     private Set<Dealer> dealers;

@@ -43,10 +43,7 @@ public class RentalService {
 
         // Step 2: Fetch or create the client
         Customer customer = customerRepository.findByName(clientName);
-        if(customer==null){
-            customer = new Customer();
-            customer.setName(clientName);
-        }
+        if(customer==null) throw new RuntimeException("Client not found! Create the client then proceed to rent");
 
         // Step 3: Assign a dealer to the client
         Dealer assignedDealer = assignRandomDealer(customer);

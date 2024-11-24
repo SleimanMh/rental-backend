@@ -15,12 +15,12 @@ import java.util.Set;
 @ToString
 public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
     private String brand;
     private int year;
     private float efficiency;
-    private double dailyRent;
     private boolean isRented;
 
     @Column(nullable = false)

@@ -1,6 +1,7 @@
 package com.carrentalsystem.controllers;
 
 import com.carrentalsystem.entities.Dealer;
+import com.carrentalsystem.entities.DealerWithCustomersDTO;
 import com.carrentalsystem.services.DealerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +24,15 @@ public class DealerController {
     @PostMapping
     public Dealer createDealer(@RequestBody Dealer dealer){
         return dealerService.createDealer(dealer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteDealer(@PathVariable Long id){
+        dealerService.deleteDealer(id);
+    }
+
+    @GetMapping("/with-customers")
+    public ResponseEntity<List<DealerWithCustomersDTO>> getDealersWithCustomers() {
+        return ResponseEntity.ok(dealerService.getDealersWithCustomers());
     }
 }
