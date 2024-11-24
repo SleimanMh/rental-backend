@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -23,6 +24,15 @@ public class Dealer {
 
     @Column(name="dealer_contact_number")
     private String dealerContactNumber;
+
+    @Column(name="DOB")
+    private Date date_of_birth;
+
+    @Column(name="email")
+    private String email;
+
+    @Column(name="address")
+    private String address;
 
     @ManyToMany
     @JsonIgnore
